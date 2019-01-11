@@ -239,7 +239,6 @@ namespace RandomCSVGenerator
             this.StartDate.Name = "StartDate";
             this.StartDate.Size = new System.Drawing.Size(256, 26);
             this.StartDate.TabIndex = 16;
-            this.StartDate.Value = new System.DateTime(2018, 12, 19, 15, 26, 38, 344);
             // 
             // EndDate
             // 

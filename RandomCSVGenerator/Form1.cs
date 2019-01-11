@@ -22,12 +22,13 @@ namespace RandomCSVGenerator
             rd = new Randomizer();
             this.DateFormatPicker.DataSource = Randomizer.dateFormats;
             this.Separator.DataSource = new BindingSource(Randomizer.Separators, null);
+            StartDate.Value = EndDate.Value.AddDays(-1);
         }
 
         private void ChangeDateFormat()
         {
-            StartDate.CustomFormat = rd.DefaultDateFormat;
-            EndDate.CustomFormat = rd.DefaultDateFormat;
+            StartDate.CustomFormat = Randomizer.DefaultDateFormat;
+            EndDate.CustomFormat = Randomizer.DefaultDateFormat;
         }
 
         private void AddNumberRange_Click(object sender, EventArgs e)
@@ -157,14 +158,14 @@ namespace RandomCSVGenerator
 
         private void ChangeDateFormatPicker(object sender, EventArgs e)
         {
-            rd.DefaultDateFormat = (sender as ComboBox).SelectedValue.ToString();
+            Randomizer.DefaultDateFormat = (sender as ComboBox).SelectedValue.ToString();
             ChangeDateFormat();
             LoadResult();
         }
 
         private void ChangeSeparator(object sender, EventArgs e)
         {
-            rd.DefaultSeparator = (sender as ComboBox).SelectedValue.ToString();
+            Randomizer.DefaultSeparator = (sender as ComboBox).SelectedValue.ToString();
             LoadResult();
         }
 

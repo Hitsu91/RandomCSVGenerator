@@ -31,34 +31,32 @@ namespace RandomCSVGenerator
 
         public static readonly string vectorFileSuggestion = "The file must have first line the delimiter char and at second line the number of max repeat";
 
-        private List<object> elements;
-        private Random random;
-        private string[] nameList;
-        private string[] cityList;
-        public string DefaultSeparator { get; set; } = ",";
-        public string DefaultDateFormat { get; set; } = dateFormats[0];
+        private List<IRandomObj> elements;
+        private RandomString nameList;
+        private RandomString cityList;
+        public static string DefaultSeparator { get; set; } = ",";
+        public static string DefaultDateFormat { get; set; } = dateFormats[0];
 
         public Randomizer()
         {
-            elements = new List<Object>();
-            random = new Random();
+            elements = new List<IRandomObj>();
             Setup();
         }
 
         private void Setup()
         {
-            nameList = File.ReadAllLines(paths["names"]);
-            cityList = File.ReadAllLines(paths["cities"]);
+            nameList = new RandomString { Strings = File.ReadAllLines(paths["names"]) };
+            cityList = new RandomString { Strings = File.ReadAllLines(paths["cities"]) };
         }
 
-        public void AddElement(object element)
+        public void AddElement(IRandomObj element)
         {
             elements.Add(element);
         }
 
         public void ReadFromFile(string path)
         {
-            AddElement(File.ReadAllLines(path));
+            AddElement(new RandomString() { Strings = File.ReadAllLines(path) });
         }
 
         public void ReadVectorFromFile(string path)
@@ -85,17 +83,17 @@ namespace RandomCSVGenerator
 
         public void AddNumberRange(double min, double max)
         {
-            AddElement(new double[] { min, max });
+            AddElement(new RandomDouble {Min= min, Max=max });
         }
 
         public void AddNumberRange(int min, int max)
         {
-            AddElement(new int[] { min, max });
+            AddElement(new RandomInt {Min= min, Max=max });
         }
 
         public void AddDateRange(DateTime start, DateTime end)
         {
-            AddElement(new DateTime[] { start, end });
+            AddElement(new RandomDate { Start = start, End= end });
         }
 
         public string ToCSV()
@@ -103,7 +101,7 @@ namespace RandomCSVGenerator
             string[] res = new string[elements.Count];
 
             for (int i = 0; i < res.Length; i++)
-                res[i] += PickRandom(elements[i]);
+                res[i] += elements[i].Generate();
 
             return String.Join(DefaultSeparator, res);
         }
@@ -117,29 +115,7 @@ namespace RandomCSVGenerator
             return res.TrimEnd();
         }
 
-        private string PickRandom(object o)
-        {
-            String res = "";
-
-            if (o is string[] strings)
-                res = strings[random.Next(strings.Length)];
-            else if (o is double[] doubles)
-                res = Math.Round(random.NextDouble() * (doubles[0] - doubles[1]) + doubles[1], 2).ToString().Replace(",", ".");
-            else if (o is int[] integers)
-                res = random.Next(integers[0], integers[1]+1).ToString();
-            else if (o is DateTime[] dates)
-                res = PickRandomDate(dates[0], dates[1]);
-            else if (o is VectorElement vector)
-                res = vector.Generate();
-
-            return res;
-        }
-
-        private string PickRandomDate(DateTime start, DateTime end)
-        {
-            int range = (end - start).Days;
-            return start.AddDays(random.Next(range+1)).ToString(DefaultDateFormat);
-        }
+       
 
         public void Clear()
         {
@@ -152,7 +128,7 @@ namespace RandomCSVGenerator
                 elements.RemoveAt(elements.Count - 1);
         }
 
-        public void Remove(object o)
+        public void Remove(IRandomObj o)
         {
             elements.Remove(o);
         }

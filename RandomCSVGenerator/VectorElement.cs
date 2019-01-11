@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RandomCSVGenerator
 {
-    class VectorElement
+    class VectorElement : IRandomObj
     {
         private static Random rd = new Random();
 
