@@ -44,7 +44,6 @@ namespace RandomCSVGenerator
                 && minDouble < maxDouble
             )
             {
-                Debug.WriteLine(min + " " + max);
                 int minInt, maxInt;
 
                 if (minDouble == (minInt = (int)minDouble) && maxDouble == (maxInt = (int)maxDouble))
