@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace RandomCSVGenerator
 {
-    class RandomString : IRandomObj
+    class IdGenerator : IRandomObj
     {
-        public string[] Strings { get; set; }
+        private int id = 0;
 
         public string Generate()
         {
-            return Strings[Utilities.random.Next(Strings.Length)];
+            return (++id).ToString();
         }
 
         public void Reset()
         {
-            
+            id = 0;
         }
     }
 }

@@ -16,5 +16,10 @@ namespace RandomCSVGenerator
             int range = (End - Start).Days;
             return Start.AddDays(Utilities.random.Next(range + 1)).ToString(Randomizer.DefaultDateFormat);
         }
+
+        public void Reset()
+        {
+            
+        }
     }
 }

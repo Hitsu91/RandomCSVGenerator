@@ -57,6 +57,7 @@ namespace RandomCSVGenerator
             this.DateFormatPicker = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.LoadVector = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.NumberOfLines)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -115,7 +116,7 @@ namespace RandomCSVGenerator
             // LoadFile
             // 
             this.LoadFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoadFile.Location = new System.Drawing.Point(16, 252);
+            this.LoadFile.Location = new System.Drawing.Point(16, 249);
             this.LoadFile.Name = "LoadFile";
             this.LoadFile.Size = new System.Drawing.Size(256, 50);
             this.LoadFile.TabIndex = 5;
@@ -125,16 +126,16 @@ namespace RandomCSVGenerator
             // 
             // Results
             // 
-            this.Results.Location = new System.Drawing.Point(16, 478);
+            this.Results.Location = new System.Drawing.Point(12, 383);
             this.Results.Name = "Results";
-            this.Results.Size = new System.Drawing.Size(518, 60);
+            this.Results.Size = new System.Drawing.Size(522, 80);
             this.Results.TabIndex = 7;
             this.Results.Text = "";
             // 
             // ExportButton
             // 
             this.ExportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExportButton.Location = new System.Drawing.Point(278, 545);
+            this.ExportButton.Location = new System.Drawing.Point(540, 413);
             this.ExportButton.Name = "ExportButton";
             this.ExportButton.Size = new System.Drawing.Size(256, 50);
             this.ExportButton.TabIndex = 8;
@@ -145,7 +146,7 @@ namespace RandomCSVGenerator
             // RemoveLast
             // 
             this.RemoveLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RemoveLast.Location = new System.Drawing.Point(16, 366);
+            this.RemoveLast.Location = new System.Drawing.Point(540, 249);
             this.RemoveLast.Name = "RemoveLast";
             this.RemoveLast.Size = new System.Drawing.Size(256, 50);
             this.RemoveLast.TabIndex = 9;
@@ -156,7 +157,7 @@ namespace RandomCSVGenerator
             // Clear
             // 
             this.Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Clear.Location = new System.Drawing.Point(278, 366);
+            this.Clear.Location = new System.Drawing.Point(540, 305);
             this.Clear.Name = "Clear";
             this.Clear.Size = new System.Drawing.Size(256, 50);
             this.Clear.TabIndex = 10;
@@ -167,9 +168,9 @@ namespace RandomCSVGenerator
             // NumberOfLines
             // 
             this.NumberOfLines.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumberOfLines.Location = new System.Drawing.Point(16, 566);
+            this.NumberOfLines.Location = new System.Drawing.Point(540, 383);
             this.NumberOfLines.Maximum = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});
@@ -191,7 +192,7 @@ namespace RandomCSVGenerator
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 544);
+            this.label2.Location = new System.Drawing.Point(536, 358);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 20);
             this.label2.TabIndex = 12;
@@ -201,7 +202,7 @@ namespace RandomCSVGenerator
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 455);
+            this.label3.Location = new System.Drawing.Point(12, 358);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 20);
             this.label3.TabIndex = 13;
@@ -210,7 +211,7 @@ namespace RandomCSVGenerator
             // AddNames
             // 
             this.AddNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddNames.Location = new System.Drawing.Point(278, 309);
+            this.AddNames.Location = new System.Drawing.Point(278, 305);
             this.AddNames.Name = "AddNames";
             this.AddNames.Size = new System.Drawing.Size(256, 50);
             this.AddNames.TabIndex = 14;
@@ -221,7 +222,7 @@ namespace RandomCSVGenerator
             // AddCIty
             // 
             this.AddCIty.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddCIty.Location = new System.Drawing.Point(278, 252);
+            this.AddCIty.Location = new System.Drawing.Point(278, 249);
             this.AddCIty.Name = "AddCIty";
             this.AddCIty.Size = new System.Drawing.Size(256, 50);
             this.AddCIty.TabIndex = 15;
@@ -331,7 +332,7 @@ namespace RandomCSVGenerator
             // LoadVector
             // 
             this.LoadVector.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoadVector.Location = new System.Drawing.Point(16, 309);
+            this.LoadVector.Location = new System.Drawing.Point(16, 305);
             this.LoadVector.Name = "LoadVector";
             this.LoadVector.Size = new System.Drawing.Size(256, 50);
             this.LoadVector.TabIndex = 26;
@@ -340,11 +341,22 @@ namespace RandomCSVGenerator
             this.LoadVector.Click += new System.EventHandler(this.LoadVector_Click);
             this.LoadVector.MouseHover += new System.EventHandler(this.SuggestionVector);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(540, 193);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(256, 50);
+            this.button2.TabIndex = 28;
+            this.button2.Text = "Add ID";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.AddID);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 613);
+            this.ClientSize = new System.Drawing.Size(812, 483);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.LoadVector);
             this.Controls.Add(this.DateFormatPicker);
             this.Controls.Add(this.label7);
@@ -410,6 +422,7 @@ namespace RandomCSVGenerator
         private System.Windows.Forms.ComboBox DateFormatPicker;
         private System.Windows.Forms.Label label7;
         private Button LoadVector;
+        private Button button2;
     }
 }
 

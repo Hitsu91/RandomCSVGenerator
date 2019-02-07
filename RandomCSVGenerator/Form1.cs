@@ -188,5 +188,11 @@ namespace RandomCSVGenerator
             System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
             ToolTip1.SetToolTip(sender as Button, Randomizer.vectorFileSuggestion);
         }
+
+        private void AddID(object sender, EventArgs e)
+        {
+            rd.AddElement(new IdGenerator());
+            LoadResult();
+        }
     }
 }

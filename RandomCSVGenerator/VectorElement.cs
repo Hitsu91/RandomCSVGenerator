@@ -24,5 +24,10 @@ namespace RandomCSVGenerator
 
             return String.Join(Delimiter, results);
         }
+
+        public void Reset()
+        {
+            
+        }
     }
 }

@@ -17,5 +17,10 @@ namespace RandomCSVGenerator
                 Math.Round(Utilities.random.NextDouble() * (Max - Min) + Min, 2)
                 .ToString().Replace(",", ".");
         }
+
+        public void Reset()
+        {
+            
+        }
     }
 }

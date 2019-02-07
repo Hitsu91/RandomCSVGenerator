@@ -17,5 +17,10 @@ namespace RandomCSVGenerator
                 Utilities.random.Next(Min, Max + 1)
                 .ToString();
         }
+
+        public void Reset()
+        {
+            
+        }
     }
 }

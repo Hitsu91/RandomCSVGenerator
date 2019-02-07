@@ -108,6 +108,7 @@ namespace RandomCSVGenerator
 
         public string ToCSV(int lines)
         {
+            Reset();
             string res = "";
             for (int i = 0; i < lines; i++)
                 res += ToCSV() + "\r\n";
@@ -141,6 +142,11 @@ namespace RandomCSVGenerator
         public void AddRandomCities()
         {
             AddElement(cityList);
+        }
+
+        public void Reset()
+        {
+            elements.ForEach(x => x.Reset());
         }
     }
 }

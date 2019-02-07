@@ -9,5 +9,6 @@ namespace RandomCSVGenerator
     interface IRandomObj
     {
         string Generate();
+        void Reset();
     }
 }
